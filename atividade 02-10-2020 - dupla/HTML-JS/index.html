@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes Collection</title>
+</head>
+<body>
+    <header>
+        <div id="header-ajuste">
+            <div class="img">
+                <img src="images/logo.png"/>
+            </div>
+            <nav class="nclass">
+                <a href="#"><h5 class="nclass-nav">Perfil</h5></a>
+                <a href="#"><h5 class="nclass-nav">Filmes</h5></a>
+                <a href="#"><h5 class="nclass-nav">Gênero</h5></a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="corpo">
+        <div class="corpo-img">
+            <h3>Filmes</h3>
+            <img src="images/cinema.png"/>
+        </div>
+        <div class="corpo-lateral">
+            <h3>Lista de Filmes</h3>
+            <div class="corpo-lateral-filmes">
+                <h4 id="filme"></h4><h4 id="genero"></h4>
+            </div>
+        </div>
+        <div class="corpo-botao">
+            <button onclick="mostrarFilmes()">Listar Filmes</button>
+        </div>
+    </section>
+
+    <section class="corpo-fim">
+        <footer>
+            <div class="corpo-fim-elementos">
+                <img src="images/logonegativo.png"/>
+                <hr>
+                <div class="info">
+                    <p>Company Inc., 8901 Marmora Road, Glasgow, D04 89GR</p>
+                    <p>Call us now toll free: (800)2345-6789</p>
+                    <p>Customer support: support@demolink.org</p>
+                    <p>Skype: sample-username</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <script src="script.js"></script>
+
+</body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    h5,h1,h3,p{
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    header{
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        background: #87CEEB;
+        
+    }
+    #header-ajuste{
+        width: 90%;
+        padding: 3em;
+        display: flex;
+        justify-content: space-between;
+    }
+    .nclass{
+        display: flex;
+        padding: 1em;
+    }
+    .nclass-nav{
+        margin: 1em;
+        color: black;
+    }
+    a{
+        text-decoration: none;
+    }
+    .corpo{
+        width: 99%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em;
+    }
+
+    .corpo-img{
+        padding:1em;
+        font-size: 14px;
+        width: 100%;
+        height: 11em;
+        text-align: center;
+    }
+    .corpo-img img{
+        margin-top: 1em;
+        width: 5vw;
+    }
+
+    .corpo-lateral{
+        width: 90%;
+        height: 9em;
+        margin-left: 10em;
+        padding: 1.5em;
+    }
+    .corpo-lateral h3{
+        margin-bottom: 1em;
+    }
+    .corpo-botao{
+        width: 90%;
+        height: 5em;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .corpo-botao button{
+        width: 10em;
+        border-radius: 0.5em;
+        height: 4em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-size: 13px;
+        padding: 2em;
+        cursor: pointer;
+        color: white;
+        background: #F6511D;
+    }
+    .corpo-fim{
+        background: #F6511D;
+        width: 100%;
+        height: 11em;
+        margin-top: 1em;
+    }
+    .corpo-fim-elementos{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 1.5em;
+    }
+    .corpo-fim-elementos hr{
+        height: 7em;
+        width: 0.1em;
+        background-color: white;
+        border: none;
+        margin: 0.5em 3em 0 3em;
+    }
+    .info{
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .info p{
+        padding: 0.4em;
+    }
+
+    .corpo-lateral-filmes{
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        width: 13em;
+    }
+    .corpo-lateral-filmes h4{
+        margin: 0.5em;
+    }
+
+    #filme, #genero{
+        margin-left: 1em;
+        margin-right: 1em;
+        color: blue;
+    }
+
+</style>
+</html>
