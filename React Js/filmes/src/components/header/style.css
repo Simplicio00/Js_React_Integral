@@ -1,0 +1,14 @@
+nav{
+    width: 1024;
+    margin: auto;
+}
+
+.header{
+    background: #9BD2DE;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+img{
+    padding-left: 50px;
+}

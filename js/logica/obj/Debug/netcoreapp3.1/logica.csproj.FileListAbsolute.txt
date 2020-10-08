@@ -1,0 +1,13 @@
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.exe
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.deps.json
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.runtimeconfig.json
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.runtimeconfig.dev.json
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.dll
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\bin\Debug\netcoreapp3.1\logica.pdb
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.csprojAssemblyReference.cache
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.AssemblyInfoInputs.cache
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.AssemblyInfo.cs
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.csproj.CoreCompileInputs.cache
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.dll
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.pdb
+C:\Users\Acer\Documents\SENAI\Técnico em Desenvolvimento\js\logica\obj\Debug\netcoreapp3.1\logica.genruntimeconfig.cache
