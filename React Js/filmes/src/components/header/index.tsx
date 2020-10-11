@@ -12,8 +12,10 @@ const Header:React.FC<HeaderProps> = (props) => {
   return (
     <div style={{marginBottom:"40px"}} >
       <div className="header">
+        
           <nav style={{display:"flex", justifyContent:"space-between", padding:"8px"}} >
-              <img src={logo} alt="Logotipo da aplicação"/>
+            
+            <img src={logo} alt="Logotipo da aplicação"/>
 
             <ul id="ul-header" style={{display:"flex", padding:"10px"}}>
               <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/">Home</Link></li>
