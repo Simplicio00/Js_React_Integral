@@ -9,12 +9,14 @@ interface ButtonProps{
 const Button:React.FC<ButtonProps> = (props) => {
     return (
         <div>
-            <button style={{
+            <button type="submit" style={{
                 width:props.largura, 
                 height:props.tamanho,
                 backgroundColor:"#F6511D",
                 color:"white",
-                cursor:"pointer"
+                cursor:"pointer",
+                paddingLeft:"10px",
+                paddingRight:"10px"
                 }}>{props.name}</button>
         </div>
     );

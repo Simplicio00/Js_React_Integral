@@ -17,29 +17,27 @@ namespace ProjetoFilmes
 {
     public class Startup
     {
+
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors( op => {
-                op.AddDefaultPolicy(bd =>
-                {
-                    bd.WithOrigins("*").WithMethods("*").WithHeaders("*");
-                });
-            } );
             services
                 // Adiciona padrão MVC ao projeto
                 .AddMvc()
 
                 // Define a versão compatível do SDK .NET Core
                 .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1)
-                .AddJsonOptions(options => {
-                    options.SerializerSettings.DateFormatString = "yyyy-MM-ddTHH:mm:ssZ";
-                    options.SerializerSettings.Formatting = Formatting.Indented;
-                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                });
-          
+                .AddJsonOptions(
+                    options =>
+                    {
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; //Remove os looping de retorno
+                        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; //retira os campos null
+                    }
+                );
 
             // Documentação Swagger
 
@@ -49,11 +47,46 @@ namespace ProjetoFilmes
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Filmes.WebApi", Version = "v1" });
 
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description =
+                        "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
+
+                        },
+                        new List<string>()
+                    }
+                });
+
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
+
+            //services.AddScoped(typeof(IGeneroRepository), typeof(GeneroRepository));
+
+
+
+
 
             services
                 // Define as configurações de autenticação
@@ -100,8 +133,6 @@ namespace ProjetoFilmes
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
-
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
@@ -113,11 +144,14 @@ namespace ProjetoFilmes
                 c.RoutePrefix = string.Empty;
             });
 
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+
             // Define o uso de autenticação
             app.UseAuthentication();
 
             // Define o uso do MVC
             app.UseMvc();
         }
+
     }
 }

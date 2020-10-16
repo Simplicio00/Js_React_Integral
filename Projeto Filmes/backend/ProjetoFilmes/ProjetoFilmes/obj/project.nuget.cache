@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jpGCL07nEhLzTj88E1lkAz6Hm4SiYtsUr3KJGZlgF+tlaISLTADMmX4kAwl3RGUtkcs6E9XzkBKRSsfO3N0CcA==",
+  "dgSpecHash": "bboqdsTbmy/VjnQU91FLaNyzFyvA8p3T61v5xG6n+5wu64RCg5wz0yCmZTP4lx9/0BSyogU+uiOeG95jx+l6+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Acer\\Desktop\\soluções\\atividade 02-10-2020 - dupla\\SENAI-ESTUDOS\\backend\\01.filmes\\backend\\ProjetoFilmes\\ProjetoFilmes\\ProjetoFilmes.csproj",
+  "projectFilePath": "C:\\Users\\Acer\\Desktop\\SENAI\\Técnico em Desenvolvimento\\Js_React_Integral\\Projeto Filmes\\backend\\ProjetoFilmes\\ProjetoFilmes\\ProjetoFilmes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Acer\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.6\\microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore\\2.1.1\\microsoft.aspnetcore.2.1.1.nupkg.sha512",

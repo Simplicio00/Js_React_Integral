@@ -9,6 +9,23 @@
             Classe responsável pelo modelo de usuários
             </summary>
         </member>
+        <member name="F:ProjetoFilmes.Controllers.ContaController._usuarioRepository">
+            <summary>
+            Cria um objeto que recebe os métodos estabelecidos na interface
+            </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.ContaController.#ctor">
+            <summary>
+            Instancia este objeto com as implementações feitas no repositório
+            </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.ContaController.Login(ProjetoFilmes.ViewModels.LoginViewModel)">
+            <summary>
+            Valida o usuário
+            </summary>
+            <param name="login">Objeto com as informações de login</param>
+            <returns>Retorna um usuário autenticado</returns>
+        </member>
         <member name="F:ProjetoFilmes.Controllers.FilmesController._filmeRepository">
             <summary>
             Cria um objeto que recebe os métodos estabelecidos na interface
@@ -18,6 +35,12 @@
             <summary>
             Instancia este objeto com as implementações feitas no repositório
             </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.FilmesController.Listar">
+            <summary>
+            Lista todos os filmes
+            </summary>
+            <returns>Retorna uma lista de filmes</returns>
         </member>
         <member name="M:ProjetoFilmes.Controllers.FilmesController.ListarPorId(System.Int32)">
             <summary>
@@ -110,6 +133,51 @@
             <param name="login">Objeto com as informações de login</param>
             <returns>Retorna um usuário autenticado</returns>
         </member>
+        <member name="F:ProjetoFilmes.Controllers.UsuariosController._usuarioRepository">
+            <summary>
+            Cria um objeto que recebe os métodos estabelecidos na interface
+            </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.#ctor">
+            <summary>
+            Instancia este objeto com as implementações feitas no repositório
+            </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.Listar">
+            <summary>
+            Lista todos os usuarios
+            </summary>
+            <returns>Retorna uma lista de usuarios</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.ListarPorId(System.Int32)">
+            <summary>
+            Busca um usuario através do ID
+            </summary>
+            <param name="id">ID do usuario que será buscado</param>
+            <returns>Retorna um usuario buscado</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.Cadastrar(ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="novoUsuario"></param>
+            <returns>Retorna um status code</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.Atualizar(System.Int32,ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Atualiza um usuario existente
+            </summary>
+            <param name="id">ID do usuario que será atualizado</param>
+            <param name="usuarioAtualizado">Objeto com as novas informações</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProjetoFilmes.Controllers.UsuariosController.Deletar(System.Int32)">
+            <summary>
+            Deleta um usuario existente
+            </summary>
+            <param name="id">ID do usuario que será deletado</param>
+            <returns>Retorna um status code</returns>
+        </member>
         <member name="T:ProjetoFilmes.Interfaces.IFilmeRepository">
             <summary>
             Interface responsável pelo repositório de filmes
@@ -188,6 +256,38 @@
             <summary>
             Interface responsável pelo repositório de usuários
             </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.Listar">
+            <summary>
+            Lista todos os usuarios
+            </summary>
+            <returns>Retorna uma lista de usuarios</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um usuario através do seu ID
+            </summary>
+            <param name="idBuscar">ID do usuario que será buscado</param>
+            <returns>Retorna um usuario buscado</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.Cadastrar(ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="novoUsuario">Objeto com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.Atualizar(System.Int32,ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Atualiza um usuario existente
+            </summary>
+            <param name="idAtualizar">ID do usuario que será atualizado</param>
+            <param name="usuarioAtualizado">Objeto com as novas informações</param>
+        </member>
+        <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um usuario existente
+            </summary>
+            <param name="idDeletar">ID do usuario que será deletado</param>
         </member>
         <member name="M:ProjetoFilmes.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
             <summary>
@@ -290,6 +390,38 @@
             <summary>
             Instancia um novo contexto para utilizar os métodos do EF Core
             </summary>
+        </member>
+        <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.Atualizar(System.Int32,ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Atualiza um usuario existente
+            </summary>
+            <param name="idAtualizar">ID do usuario que será atualizado</param>
+            <param name="usuarioAtualizado">Objeto com as novas informações</param>
+        </member>
+        <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um usuario através do seu ID
+            </summary>
+            <param name="idBuscar">ID do usuario que será buscado</param>
+            <returns>Retorna um usuario buscado</returns>
+        </member>
+        <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.Cadastrar(ProjetoFilmes.Domains.Usuarios)">
+            <summary>
+            Cadastra um novo usuario
+            </summary>
+            <param name="novoUsuario">Objeto com as informações que serão cadastradas</param>
+        </member>
+        <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um usuario existente
+            </summary>
+            <param name="idDeletar">ID do usuario que será deletado</param>
+        </member>
+        <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.Listar">
+            <summary>
+            Lista todos os usuarios
+            </summary>
+            <returns>Retorna uma lista de usuarios</returns>
         </member>
         <member name="M:ProjetoFilmes.Repositories.UsuarioRepository.Login(System.String,System.String)">
             <summary>

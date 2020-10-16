@@ -1,5 +1,6 @@
 ﻿using ProjetoFilmes.Domains;
 using ProjetoFilmes.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProjetoFilmes.Repositories
@@ -13,6 +14,73 @@ namespace ProjetoFilmes.Repositories
         /// Instancia um novo contexto para utilizar os métodos do EF Core
         /// </summary>
         Context ctx = new Context();
+
+
+
+
+        /// <summary>
+        /// Atualiza um usuario existente
+        /// </summary>
+        /// <param name="idAtualizar">ID do usuario que será atualizado</param>
+        /// <param name="usuarioAtualizado">Objeto com as novas informações</param>
+        public void Atualizar(int idAtualizar, Usuarios usuarioAtualizado)
+        {
+            Usuarios usuarioAtual = BuscarPorId(idAtualizar);
+
+            if (usuarioAtual != null)
+            {
+                usuarioAtual = usuarioAtualizado;
+            }
+
+            ctx.Usuarios.Update(usuarioAtual);
+
+            ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Busca um usuario através do seu ID
+        /// </summary>
+        /// <param name="idBuscar">ID do usuario que será buscado</param>
+        /// <returns>Retorna um usuario buscado</returns>
+        public Usuarios BuscarPorId(int idBuscar)
+        {
+            Usuarios usuarioBuscado = ctx.Usuarios.Find(idBuscar);
+
+            return usuarioBuscado;
+        }
+
+        /// <summary>
+        /// Cadastra um novo usuario
+        /// </summary>
+        /// <param name="novoUsuario">Objeto com as informações que serão cadastradas</param>
+        public void Cadastrar(Usuarios novoUsuario)
+        {
+            ctx.Usuarios.Add(novoUsuario);
+
+            ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Deleta um usuario existente
+        /// </summary>
+        /// <param name="idDeletar">ID do usuario que será deletado</param>
+        public void Deletar(int idDeletar)
+        {
+            ctx.Usuarios.Remove(BuscarPorId(idDeletar));
+
+            ctx.SaveChanges();
+        }
+
+        /// <summary>
+        /// Lista todos os usuarios
+        /// </summary>
+        /// <returns>Retorna uma lista de usuarios</returns>
+        public List<Usuarios> Listar()
+        {
+            return ctx.Usuarios.ToList();
+        }
+
+
 
         /// <summary>
         /// Valida o usuário

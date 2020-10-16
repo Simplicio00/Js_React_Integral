@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ProjetoFilmes.Domains;
 using ProjetoFilmes.Interfaces;
 using ProjetoFilmes.Repositories;
@@ -31,9 +30,16 @@ namespace ProjetoFilmes.Controllers
             _filmeRepository = new FilmeRepository();
         }
 
+        /// <summary>
+        /// Lista todos os filmes
+        /// </summary>
+        /// <returns>Retorna uma lista de filmes</returns>
         [HttpGet]
-        public IActionResult Listar() => Ok(_filmeRepository.Listar());
-        
+        [Authorize]
+        public IActionResult Listar()
+        {
+            return Ok(_filmeRepository.Listar());
+        }
 
         /// <summary>
         /// Busca um filme através do ID
@@ -41,6 +47,7 @@ namespace ProjetoFilmes.Controllers
         /// <param name="id">ID do filme que será buscado</param>
         /// <returns>Retorna um filme buscado</returns>
         [HttpGet("{id}")]
+        [Authorize]
         public IActionResult ListarPorId(int id)
         {
             try
@@ -66,13 +73,14 @@ namespace ProjetoFilmes.Controllers
         /// <param name="novoFilme"></param>
         /// <returns>Retorna um status code</returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Filmes novoFilme)
         {
             try
             {
                 _filmeRepository.Cadastrar(novoFilme);
 
-                return StatusCode(201);
+                return StatusCode(201, novoFilme);
             }
             catch (Exception error)
             {
@@ -87,6 +95,7 @@ namespace ProjetoFilmes.Controllers
         /// <param name="filmeAtualizado">Objeto com as novas informações</param>
         /// <returns></returns>
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Atualizar(int id, Filmes filmeAtualizado)
         {
             try
@@ -97,7 +106,7 @@ namespace ProjetoFilmes.Controllers
                 {
                     _filmeRepository.Atualizar(id, filmeAtualizado);
 
-                    return StatusCode(204);
+                    return StatusCode(204, filmeAtualizado);
                 }
 
                 return NotFound("Nenhum filme encontrado para o ID informado.");
@@ -114,6 +123,7 @@ namespace ProjetoFilmes.Controllers
         /// <param name="id">ID do filme que será deletado</param>
         /// <returns>Retorna um status code</returns>
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Deletar(int id)
         {
             try
@@ -124,7 +134,7 @@ namespace ProjetoFilmes.Controllers
                 {
                     _filmeRepository.Deletar(id);
 
-                    return StatusCode(202);
+                    return StatusCode(202, filmeBuscado);
                 }
 
                 return NotFound("Nenhum filme encontrado para o ID informado.");

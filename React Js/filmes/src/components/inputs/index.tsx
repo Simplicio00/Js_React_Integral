@@ -5,14 +5,15 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     name: string,
     color: string,
     tamanho: string,
-    largura: string
+    largura: string,
+    valor?: string
 }
 
-const Input: React.FC<InputProps> = ({label, name, color, tamanho, largura, ...rest}) =>{
+const Input: React.FC<InputProps> = ({label, name, color, tamanho, largura, valor, ...rest}) =>{
     return(
         <div>
             <label htmlFor={name} style={{color:color}}>{label}</label>
-            <input style={{margin:"10px", padding:"3px", height:tamanho, width:largura}} type="text" id={name}{...rest} />
+            <input value={valor} style={{margin:"10px", padding:"3px", height:tamanho, width:largura}} type="text" id={name}{...rest} />
         </div>
     )
 }

@@ -6,9 +6,14 @@
 
 /* Configurações gerais */
 
-input, button{
-    border-style: none;
+input{
     border-radius: 8px !important;
+    border-style: ridge;
+}
+
+button{
+    border-style: none; 
+    margin: 10px;
 }
 
 /* Cabeçalho */
@@ -37,4 +42,9 @@ input, button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+select{
+    width: 400px;
+    padding: 20px;
 }

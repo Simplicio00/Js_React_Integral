@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoFilmes.Domains
@@ -16,6 +17,7 @@ namespace ProjetoFilmes.Domains
 
         public int IdGenero { get; set; }
 
+        [JsonProperty("genero")]
         public virtual Generos IdGeneroNavigation { get; set; }
     }
 }
