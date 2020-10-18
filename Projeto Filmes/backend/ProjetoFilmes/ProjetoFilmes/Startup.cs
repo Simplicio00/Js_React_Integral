@@ -17,14 +17,17 @@ namespace ProjetoFilmes
 {
     public class Startup
     {
-
-
-        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(op => {
+                op.AddDefaultPolicy(bd =>
+                {
+                    bd.WithOrigins("*").WithMethods("*").WithHeaders("*");
+                });
+            });
+
             services
                 // Adiciona padrão MVC ao projeto
                 .AddMvc()
@@ -132,6 +135,10 @@ namespace ProjetoFilmes
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            app.UseCors();
+
+            //app.useAuthorization()
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
@@ -144,10 +151,10 @@ namespace ProjetoFilmes
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-
             // Define o uso de autenticação
             app.UseAuthentication();
+
+            
 
             // Define o uso do MVC
             app.UseMvc();

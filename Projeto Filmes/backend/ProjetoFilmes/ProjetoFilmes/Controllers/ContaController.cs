@@ -73,7 +73,7 @@ namespace ProjetoFilmes.Controllers
 
                 // Define as informações do token
                 var token = new JwtSecurityToken(
-                    // Define o emissor
+                    // Define o emissor 
                     issuer: "Filmes.WebApi",
                     // Define o receptor
                     audience: "Filmes.WebApi",

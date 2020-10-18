@@ -1,0 +1,12 @@
+.titulo h1 img{
+    height: 60px;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    height: 1.5em;
+}

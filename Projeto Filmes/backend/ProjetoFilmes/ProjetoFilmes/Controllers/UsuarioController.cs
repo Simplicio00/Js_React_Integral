@@ -73,6 +73,7 @@ namespace ProjetoFilmes.Controllers
         /// </summary>
         /// <param name="novoUsuario"></param>
         /// <returns>Retorna um status code</returns>
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult Cadastrar(Usuarios novoUsuario)
         {

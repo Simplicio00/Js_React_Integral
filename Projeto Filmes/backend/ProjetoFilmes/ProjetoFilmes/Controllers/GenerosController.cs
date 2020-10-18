@@ -72,8 +72,8 @@ namespace ProjetoFilmes.Controllers
         /// </summary>
         /// <param name="novoGenero">Objeto com as informações que serão cadastradas</param>
         /// <returns>Retorna um status code</returns>
+        [Authorize (Roles = "Administrador")]
         [HttpPost]
-        [Authorize]
         public IActionResult Cadastrar(Generos novoGenero)
         {
             try
@@ -144,5 +144,5 @@ namespace ProjetoFilmes.Controllers
                 return BadRequest(erro);
             }
         }
-    }
+    }   
 }

@@ -5,6 +5,7 @@ import Login from './pages/login/index'
 import Cadastro from './pages/cadastro/index'
 import Perfil from './pages/perfil/index'
 import Filmes from './pages/filmes/index'
+import Generos from './pages/generos/index'
 
 
 function Routers(){
@@ -15,7 +16,7 @@ function Routers(){
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/perfil" component={Perfil} />
             <Route path="/filmes" component={Filmes} />
-
+            <Route path="/generos" component={Generos} />
         </BrowserRouter>
     );
 }

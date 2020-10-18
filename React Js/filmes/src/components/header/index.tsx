@@ -33,7 +33,9 @@ const Header:React.FC<HeaderProps> = (props) => {
         <ul id="ul-header" style={{display:"flex", padding:"10px"}}>
           <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/">Home</Link></li>
           <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/filmes">Filmes</Link></li>
-          <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/perfil">perfil</Link></li>
+          <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/perfil">Perfil</Link></li>
+          <li><Link className="link" style={{textDecoration:"none", color:"black"}} to="/generos">Generos</Link></li>
+
           <li><Link  to="/perfil" onClick={eve => {
             eve.preventDefault() 
             logout()}} >Logout</Link></li>
