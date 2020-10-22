@@ -30,6 +30,7 @@ button{
     width: 1024px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin: auto;
     background-color: cadetblue;
 }

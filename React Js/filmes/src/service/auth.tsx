@@ -1,0 +1,13 @@
+export const usuarioAutenticado = () => localStorage.getItem('token-filmes') !== null
+
+export const parseJwt = () =>{
+    var token = localStorage.getItem('token-filmes')
+
+    if(token){
+        var base64Url = token.split('.')[1]
+
+        var base64 = base64Url.replace(/-/g, '+').replace(/-/g, '/')
+
+        return JSON.parse(window.atob(base64))
+    }
+}
